@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BarcodeModule">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\BarcodeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Binding_SmartRefreshFooter">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\Binding_SmartRefreshFooter.dll</HintPath>
+    </Reference>
+    <Reference Include="Binding_SmartRefreshHeader">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\Binding_SmartRefreshHeader.dll</HintPath>
+    </Reference>
+    <Reference Include="Binding_SmartRefreshLayout">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\Binding_SmartRefreshLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Immersionbar">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\Immersionbar.dll</HintPath>
+    </Reference>
+    <Reference Include="KZDialog">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\KZDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="TitleBar">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\TitleBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Toasty">
+      <HintPath>F:\公司\信浓马达\项目\WMS.SKW\src\Dll\Toasty.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

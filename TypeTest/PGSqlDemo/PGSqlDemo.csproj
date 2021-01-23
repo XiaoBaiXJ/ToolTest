@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8508997D-A023-434E-8183-A7A0C33BB8D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PGSqlDemo</RootNamespace>
+    <AssemblyName>PGSqlDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraTreeList.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql, Version=6.4.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework6.Npgsql.6.4.1\lib\net461\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="HZH_Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HZH_Controls.1.0.14\lib\net40\HZH_Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\PgSql.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PgSql.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\PgSql.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\PgSql.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PgSql.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_antennaconfig.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_antennahealth.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_asubtask.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_ataskinfo.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_datamanagerlog.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_department.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_devres.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_devresstatuslog.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_devrestype.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_devrestypeinfo.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_fsubtask.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_ftaskinfo.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_mswitchconfig.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_rescountdata.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_role.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_sat.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_station.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_stationtask.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_substationtask.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_subtask.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_subtasktype.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_sysconfig.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_taskdev.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_taskinfo.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_tasktemplate.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_tasktemplatedev.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_tasktype.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_thunderdata.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_user.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_userlog.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pgsql\t_weatherdata.cs">
+      <DependentUpon>PgSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Pgsql\PgSql.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PgSql.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Pgsql\PgSql.edmx.diagram">
+      <DependentUpon>PgSql.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pgsql\PgSql.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PgSql.Context.cs</LastGenOutput>
+      <DependentUpon>PgSql.edmx</DependentUpon>
+    </Content>
+    <Content Include="Pgsql\PgSql.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PgSql.cs</LastGenOutput>
+      <DependentUpon>PgSql.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

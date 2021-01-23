@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="725db5dc625e406eba88504e44528784" Name="Diagram1" >
+        <EntityTypeShape EntityType="PgSql.t_antennaconfig" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_antennahealth" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_asubtask" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_ataskinfo" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PgSql.t_datamanagerlog" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_department" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PgSql.t_devres" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PgSql.t_devresstatuslog" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_devrestype" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PgSql.t_devrestypeinfo" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PgSql.t_fsubtask" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="PgSql.t_ftaskinfo" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_mswitchconfig" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="PgSql.t_rescountdata" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PgSql.t_role" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PgSql.t_sat" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_station" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PgSql.t_stationtask" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PgSql.t_substationtask" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PgSql.t_subtask" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PgSql.t_subtasktype" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PgSql.t_sysconfig" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_taskdev" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="PgSql.t_taskinfo" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PgSql.t_tasktemplate" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="PgSql.t_tasktemplatedev" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PgSql.t_tasktype" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PgSql.t_thunderdata" Width="1.5" PointX="16.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PgSql.t_user" Width="1.5" PointX="10.75" PointY="16.75" />
+        <EntityTypeShape EntityType="PgSql.t_userlog" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="PgSql.t_weatherdata" Width="1.5" PointX="16.75" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PgSql.Store" Provider="Npgsql" ProviderManifestToken="13.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_antennaconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="antennaname" Type="varchar" MaxLength="60" />
+          <Property Name="resid" Type="varchar" MaxLength="40" />
+          <Property Name="resname" Type="varchar" MaxLength="40" />
+          <Property Name="lon" Type="float8" />
+          <Property Name="lat" Type="float8" />
+          <Property Name="height" Type="float8" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="comment" Type="text" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="40" />
+          <Property Name="antenidex" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_antennahealth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="sortid" Type="int4" />
+          <Property Name="msgtime" Type="timestamp" />
+          <Property Name="systime" Type="timestamp" />
+          <Property Name="datatype" Type="int4" />
+          <Property Name="health" Type="int4" />
+          <Property Name="fw" Type="float4" />
+          <Property Name="fy" Type="float4" />
+          <Property Name="xhqd" Type="float4" />
+          <Property Name="lock" Type="int4" />
+          <Property Name="djjcx" Type="float4" />
+          <Property Name="djjcy" Type="float4" />
+          <Property Name="kt1wd" Type="float4" />
+          <Property Name="kt1sd" Type="float4" />
+          <Property Name="wsd1wd" Type="float4" />
+          <Property Name="wsd1sd" Type="float4" />
+          <Property Name="sj1" Type="float4" />
+          <Property Name="fwdj1" Type="float4" />
+          <Property Name="fwdj2" Type="float4" />
+          <Property Name="fydj1" Type="float4" />
+          <Property Name="fydj2" Type="float4" />
+          <Property Name="sxdljxdy1" Type="float4" />
+          <Property Name="sxdljxdy2" Type="float4" />
+          <Property Name="sxdljxdy3" Type="float4" />
+          <Property Name="sxdljxiandy1" Type="float4" />
+          <Property Name="sxdljxiandy2" Type="float4" />
+          <Property Name="sxdljxiandy3" Type="float4" />
+          <Property Name="sxdljxdl1" Type="float4" />
+          <Property Name="sxdljxdl2" Type="float4" />
+          <Property Name="sxdljxdl3" Type="float4" />
+          <Property Name="txzmx" Type="float4" />
+          <Property Name="txzmy" Type="float4" />
+          <Property Name="txzmz" Type="float4" />
+          <Property Name="log" Type="int4" />
+        </EntityType>
+        <EntityType Name="t_asubtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskid" Type="varchar" MaxLength="40" />
+          <Property Name="satid" Type="int2" />
+          <Property Name="satname" Type="varchar" MaxLength="20" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="t_ataskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskname" Type="varchar" MaxLength="60" />
+          <Property Name="createtime" Type="timestamp" />
+          <Property Name="createperid" Type="varchar" MaxLength="40" />
+          <Property Name="createper" Type="varchar" MaxLength="40" />
+          <Property Name="tasktype" Type="varchar" MaxLength="40" />
+          <Property Name="tasktypeid" Type="int2" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="taskinterval" Type="int4" />
+          <Property Name="taskrtstatusid" Type="int2" />
+          <Property Name="taskcomment" Type="text" />
+          <Property Name="datapath" Type="varchar" MaxLength="255" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+          <Property Name="antenname" Type="varchar" MaxLength="40" />
+          <Property Name="antenid" Type="int2" />
+          <Property Name="reserved1" Type="varchar" MaxLength="255" />
+          <Property Name="reserved2" Type="varchar" MaxLength="255" />
+          <Property Name="tasklog" Type="text" />
+          <Property Name="approvalstatus" Type="varchar" MaxLength="40" />
+          <Property Name="approvalremark" Type="text" />
+          <Property Name="approvalstatusid" Type="int2" />
+          <Property Name="taskrtstatus" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_datamanagerlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="opertype" Type="varchar" MaxLength="40" />
+          <Property Name="comment" Type="text" />
+          <Property Name="systime" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="t_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="depname" Type="varchar" MaxLength="10" />
+          <Property Name="regtime" Type="timestamp" />
+          <Property Name="regper" Type="varchar" MaxLength="40" />
+          <Property Name="depcode" Type="varchar" MaxLength="10" />
+          <Property Name="company" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_devres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="resname" Type="varchar" MaxLength="60" />
+          <Property Name="rescode" Type="varchar" MaxLength="60" />
+          <Property Name="restypeid" Type="int4" />
+          <Property Name="restype" Type="varchar" MaxLength="40" />
+          <Property Name="restypeinfoid" Type="int4" />
+          <Property Name="restypeinfo" Type="varchar" MaxLength="40" />
+          <Property Name="regtime" Type="timestamp" />
+          <Property Name="regper" Type="varchar" MaxLength="40" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="ip" Type="varchar" MaxLength="15" />
+          <Property Name="port" Type="int4" />
+          <Property Name="resposition" Type="varchar" MaxLength="256" />
+          <Property Name="localport" Type="int4" />
+          <Property Name="ftpip" Type="varchar" MaxLength="15" />
+          <Property Name="ftpport" Type="int4" />
+          <Property Name="ftpuser" Type="varchar" MaxLength="40" />
+          <Property Name="ftppasswd" Type="varchar" MaxLength="40" />
+          <Property Name="antenname" Type="varchar" MaxLength="40" />
+          <Property Name="antenidex" Type="int2" />
+          <Property Name="addr485" Type="int2" />
+          <Property Name="status" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_devresstatuslog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="resid" Type="varchar" MaxLength="40" />
+          <Property Name="resname" Type="varchar" MaxLength="60" />
+          <Property Name="rescode" Type="varchar" MaxLength="60" />
+          <Property Name="restypeid" Type="int4" />
+          <Property Name="restype" Type="varchar" MaxLength="20" />
+          <Property Name="restypeinfoid" Type="int4" />
+          <Property Name="restypeinfo" Type="varchar" MaxLength="40" />
+          <Property Name="resstatus" Type="varchar" MaxLength="10" />
+          <Property Name="comment" Type="text" />
+          <Property Name="statustime" Type="timestamp" />
+          <Property Name="ip" Type="varchar" MaxLength="15" />
+          <Property Name="port" Type="int4" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_devrestype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" Nullable="false" />
+          <Property Name="typename" Type="varchar" MaxLength="40" />
+          <Property Name="typecode" Type="varchar" MaxLength="40" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="40" />
+          <Property Name="isdel" Type="bool" />
+        </EntityType>
+        <EntityType Name="t_devrestypeinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" Nullable="false" />
+          <Property Name="typeid" Type="int4" />
+          <Property Name="typename" Type="varchar" MaxLength="40" />
+          <Property Name="typeinfo" Type="varchar" MaxLength="40" />
+          <Property Name="filepath" Type="varchar" MaxLength="255" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="50" />
+          <Property Name="comment" Type="text" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="40" />
+          <Property Name="isdel" Type="bool" />
+          <Property Name="TypeInfoCode" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="t_fsubtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskid" Type="varchar" MaxLength="40" />
+          <Property Name="satid" Type="int2" />
+          <Property Name="satname" Type="varchar" MaxLength="20" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="endazimuth" Type="float4" />
+          <Property Name="beginelevation" Type="float4" />
+          <Property Name="beginazimuth" Type="float4" />
+          <Property Name="endfelevation" Type="float4" />
+          <Property Name="pointinterval" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_ftaskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskname" Type="varchar" MaxLength="60" />
+          <Property Name="createtime" Type="timestamp" />
+          <Property Name="createperid" Type="varchar" MaxLength="40" />
+          <Property Name="createper" Type="varchar" MaxLength="40" />
+          <Property Name="tasktype" Type="varchar" MaxLength="40" />
+          <Property Name="tasktypeid" Type="int2" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="taskinterval" Type="int4" />
+          <Property Name="taskstatus" Type="int2" />
+          <Property Name="taskcomment" Type="text" />
+          <Property Name="datapath" Type="varchar" MaxLength="255" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+          <Property Name="antenname" Type="varchar" MaxLength="40" />
+          <Property Name="antenid" Type="varchar" MaxLength="40" />
+          <Property Name="returnstatus" Type="int2" />
+          <Property Name="reserved1" Type="varchar" MaxLength="255" />
+          <Property Name="reserved2" Type="varchar" MaxLength="255" />
+          <Property Name="tasklog" Type="text" />
+          <Property Name="antenidex" Type="int2" />
+          <Property Name="cz_receive_band" Type="int2" />
+          <Property Name="cz_filter_band" Type="int2" />
+          <Property Name="cz_work_mode" Type="int2" />
+          <Property Name="cz_work_frequency" Type="int2" />
+          <Property Name="cz_captimelen" Type="int4" />
+          <Property Name="cz_samplerate" Type="int2" />
+          <Property Name="cz_intervaltime" Type="int2" />
+          <Property Name="cz_if" Type="float8" />
+          <Property Name="cz_dynamic_adjust" Type="int2" />
+          <Property Name="cz_satlist" Type="int2" />
+          <Property Name="cz_modeselect" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_mswitchconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="resid" Type="varchar" MaxLength="60" />
+          <Property Name="rescode" Type="varchar" MaxLength="60" />
+          <Property Name="resname" Type="varchar" MaxLength="40" />
+          <Property Name="inout" Type="int2" />
+          <Property Name="channelnum" Type="varchar" MaxLength="40" />
+          <Property Name="channelname" Type="varchar" MaxLength="40" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="t_rescountdata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="content" Type="text" />
+          <Property Name="begintime" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="t_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="rolename" Type="varchar" MaxLength="10" />
+          <Property Name="rolecode" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="t_sat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int2" Nullable="false" />
+          <Property Name="satname" Type="varchar" MaxLength="60" />
+          <Property Name="prn" Type="varchar" MaxLength="60" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="20" />
+          <Property Name="satsys" Type="varchar" MaxLength="40" />
+          <Property Name="restname" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="t_station">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" />
+          <Property Name="code" Type="varchar" MaxLength="40" />
+          <Property Name="regtime" Type="timestamp" />
+          <Property Name="isdel" Type="bool" />
+          <Property Name="stationtype" Type="int2" />
+          <Property Name="ftppath" Type="varchar" MaxLength="255" />
+          <Property Name="ftpuser" Type="varchar" MaxLength="40" />
+          <Property Name="ftppasswd" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_stationtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskname" Type="varchar" MaxLength="60" />
+          <Property Name="createtime" Type="timestamp" />
+          <Property Name="createper" Type="varchar" MaxLength="40" />
+          <Property Name="tasktype" Type="int2" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="taskinterval" Type="int4" />
+          <Property Name="timetpye" Type="int2" />
+          <Property Name="taskstatus" Type="int2" />
+          <Property Name="raskcomment" Type="text" />
+          <Property Name="statuscomment" Type="text" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_substationtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskid" Type="varchar" MaxLength="40" />
+          <Property Name="satid" Type="int2" />
+          <Property Name="satname" Type="varchar" MaxLength="20" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="t_subtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskid" Type="varchar" MaxLength="40" />
+          <Property Name="satid" Type="int2" />
+          <Property Name="satname" Type="varchar" MaxLength="20" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="endazimuth" Type="float4" />
+          <Property Name="beginelevation" Type="float4" />
+          <Property Name="beginazimuth" Type="float4" />
+          <Property Name="endfelevation" Type="float4" />
+          <Property Name="pointinterval" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_subtasktype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tasktypeid" Type="int4" />
+          <Property Name="tasktype" Type="varchar" MaxLength="60" />
+          <Property Name="subtasktype" Type="varchar" MaxLength="60" />
+          <Property Name="comment" Type="text" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_sysconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="rmq_serverip" Type="varchar" MaxLength="60" />
+          <Property Name="rmq_serveruser" Type="varchar" MaxLength="40" />
+          <Property Name="rmq_serverpsd" Type="varchar" MaxLength="40" />
+          <Property Name="fb_localudpport" Type="int4" />
+          <Property Name="fb_totalctlip" Type="varchar" MaxLength="40" />
+          <Property Name="fb_totalctlport" Type="int4" />
+          <Property Name="fb_inthewayip" Type="varchar" MaxLength="40" />
+          <Property Name="fb_inthewayport" Type="int4" />
+          <Property Name="ftp_dataserverip" Type="varchar" MaxLength="40" />
+          <Property Name="ftp_dataserverport" Type="int4" />
+          <Property Name="ftp_dataserveruser" Type="varchar" MaxLength="40" />
+          <Property Name="ftp_dataserverpsd" Type="varchar" MaxLength="40" />
+          <Property Name="res_monitorinterval" Type="int4" />
+          <Property Name="res_outlineinterval" Type="int4" />
+          <Property Name="fb_bd3beginindex" Type="int2" />
+          <Property Name="fb_bd3endindex" Type="int2" />
+          <Property Name="ant_healthgate" Type="int2" />
+          <Property Name="tsk_planinterval" Type="int2" />
+          <Property Name="thd_autostopwarinterval" Type="int4" />
+          <Property Name="thd_notneedwarinterval" Type="int4" />
+          <Property Name="dm_antendatadays" Type="int2" />
+          <Property Name="dm_thddatadays" Type="int2" />
+          <Property Name="dm_whrdatadays" Type="int2" />
+          <Property Name="dm_dmlogdatadays" Type="int2" />
+          <Property Name="dm_dohour" Type="int2" />
+          <Property Name="oh_editer" Type="varchar" MaxLength="200" />
+          <Property Name="oh_edittime" Type="timestamp" />
+          <Property Name="oh_reserve1" Type="varchar" MaxLength="40" />
+          <Property Name="oh_reserve2" Type="varchar" MaxLength="40" />
+          <Property Name="oh_reserve3" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_taskdev">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="taskid" Type="varchar" MaxLength="40" />
+          <Property Name="resid" Type="varchar" MaxLength="40" />
+          <Property Name="resname" Type="varchar" MaxLength="40" />
+          <Property Name="param" Type="text" />
+          <Property Name="index" Type="int2" />
+          <Property Name="restypeid" Type="int4" />
+          <Property Name="restypeinfoid" Type="int4" />
+        </EntityType>
+        <EntityType Name="t_taskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="parenttaskid" Type="varchar" MaxLength="40" />
+          <Property Name="taskname" Type="varchar" MaxLength="60" />
+          <Property Name="createtime" Type="timestamp" />
+          <Property Name="createperid" Type="varchar" MaxLength="40" />
+          <Property Name="createper" Type="varchar" MaxLength="40" />
+          <Property Name="tasktype" Type="varchar" MaxLength="40" />
+          <Property Name="tasktypeid" Type="int2" />
+          <Property Name="subtasktype" Type="varchar" MaxLength="40" />
+          <Property Name="subtasktypeid" Type="int2" />
+          <Property Name="begintime" Type="timestamp" />
+          <Property Name="endtime" Type="timestamp" />
+          <Property Name="taskinterval" Type="int4" />
+          <Property Name="cycletpye" Type="int2" />
+          <Property Name="cycleneed" Type="int2" />
+          <Property Name="taskstatus" Type="int2" />
+          <Property Name="taskcomment" Type="text" />
+          <Property Name="tasklog" Type="text" />
+          <Property Name="sharedatapath" Type="varchar" MaxLength="255" />
+          <Property Name="localdatapath" Type="varchar" MaxLength="255" />
+          <Property Name="station" Type="varchar" MaxLength="40" />
+          <Property Name="stationid" Type="varchar" MaxLength="40" />
+          <Property Name="reserved1" Type="varchar" MaxLength="255" />
+          <Property Name="reserved2" Type="varchar" MaxLength="255" />
+          <Property Name="antenname" Type="varchar" MaxLength="40" />
+          <Property Name="antenid" Type="varchar" MaxLength="40" />
+          <Property Name="antenidex" Type="int2" />
+          <Property Name="cz_receive_band" Type="int2" />
+          <Property Name="cz_filter_band" Type="int2" />
+          <Property Name="cz_work_mode" Type="int2" />
+          <Property Name="cz_work_frequency" Type="int2" />
+          <Property Name="cz_captimelen" Type="int4" />
+          <Property Name="cz_samplerate" Type="int2" />
+          <Property Name="cz_intervaltime" Type="int2" />
+          <Property Name="cz_if" Type="float8" />
+          <Property Name="cz_dynamic_adjust" Type="int2" />
+          <Property Name="cz_satlist" Type="int2" />
+          <Property Name="cz_modeselect" Type="int2" />
+        </EntityType>
+        <EntityType Name="t_tasktemplate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="templatename" Type="varchar" MaxLength="60" />
+          <Property Name="createtime" Type="timestamp" />
+          <Property Name="createper" Type="varchar" MaxLength="40" />
+          <Property Name="tasktype" Type="varchar" MaxLength="40" />
+          <Property Name="tasktypeid" Type="int2" />
+          <Property Name="subtasktype" Type="varchar" MaxLength="40" />
+          <Property Name="subtasktypeid" Type="int2" />
+          <Property Name="comment" Type="text" />
+        </EntityType>
+        <EntityType Name="t_tasktemplatedev">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="templateid" Type="varchar" MaxLength="40" />
+          <Property Name="resid" Type="varchar" MaxLength="40" />
+          <Property Name="param" Type="text" />
+          <Property Name="resname" Type="varchar" MaxLength="40" />
+          <Property Name="index" Type="int2" />
+          <Property Name="restypeid" Type="int4" />
+          <Property Name="restypeinfoid" Type="int4" />
+        </EntityType>
+        <EntityType Name="t_tasktype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tasktype" Type="varchar" MaxLength="60" />
+          <Property Name="comment" Type="text" />
+          <Property Name="edittime" Type="timestamp" />
+          <Property Name="editper" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_thunderdata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="sortid" Type="int4" />
+          <Property Name="typemsg" Type="int4" />
+          <Property Name="datalen" Type="int4" />
+          <Property Name="timemsg" Type="timestamp" />
+          <Property Name="eqptype" Type="int4" />
+          <Property Name="iostat" Type="int4" />
+          <Property Name="thundercnt" Type="int4" />
+          <Property Name="warlevel" Type="int4" />
+          <Property Name="elecpower" Type="float4" />
+          <Property Name="elecpoweraver" Type="float4" />
+          <Property Name="elecpowerrate" Type="float4" />
+          <Property Name="power" Type="float4" />
+          <Property Name="eqptemp" Type="float4" />
+          <Property Name="funspeed" Type="int4" />
+          <Property Name="devresid" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="10" />
+          <Property Name="logincode" Type="varchar" MaxLength="40" />
+          <Property Name="passwd" Type="varchar" MaxLength="40" />
+          <Property Name="regtime" Type="timestamp" />
+          <Property Name="role" Type="varchar" MaxLength="10" />
+          <Property Name="department" Type="varchar" MaxLength="40" />
+          <Property Name="roleid" Type="varchar" MaxLength="40" />
+          <Property Name="departmentid" Type="varchar" MaxLength="40" />
+          <Property Name="isdel" Type="bool" />
+        </EntityType>
+        <EntityType Name="t_userlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="60" />
+          <Property Name="logincode" Type="varchar" MaxLength="60" />
+          <Property Name="opertype" Type="varchar" MaxLength="40" />
+          <Property Name="comment" Type="text" />
+          <Property Name="usertime" Type="timestamp" />
+          <Property Name="ip" Type="varchar" MaxLength="15" />
+          <Property Name="department" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="t_weatherdata">
+          <Key>
+            <PropertyRef Name="weatherid" />
+          </Key>
+          <Property Name="weatherid" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="weathertype" Type="varchar" MaxLength="10" />
+          <Property Name="weathercontent" Type="text" />
+          <Property Name="weathertime" Type="timestamp" />
+        </EntityType>
+        <EntityContainer Name="PgSqlStoreContainer">
+          <EntitySet Name="t_antennaconfig" EntityType="Self.t_antennaconfig" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_antennahealth" EntityType="Self.t_antennahealth" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_asubtask" EntityType="Self.t_asubtask" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_ataskinfo" EntityType="Self.t_ataskinfo" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_datamanagerlog" EntityType="Self.t_datamanagerlog" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_department" EntityType="Self.t_department" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_devres" EntityType="Self.t_devres" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_devresstatuslog" EntityType="Self.t_devresstatuslog" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_devrestype" EntityType="Self.t_devrestype" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_devrestypeinfo" EntityType="Self.t_devrestypeinfo" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_fsubtask" EntityType="Self.t_fsubtask" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_ftaskinfo" EntityType="Self.t_ftaskinfo" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_mswitchconfig" EntityType="Self.t_mswitchconfig" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_rescountdata" EntityType="Self.t_rescountdata" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_role" EntityType="Self.t_role" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_sat" EntityType="Self.t_sat" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_station" EntityType="Self.t_station" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_stationtask" EntityType="Self.t_stationtask" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_substationtask" EntityType="Self.t_substationtask" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_subtask" EntityType="Self.t_subtask" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_subtasktype" EntityType="Self.t_subtasktype" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_sysconfig" EntityType="Self.t_sysconfig" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_taskdev" EntityType="Self.t_taskdev" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_taskinfo" EntityType="Self.t_taskinfo" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_tasktemplate" EntityType="Self.t_tasktemplate" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_tasktemplatedev" EntityType="Self.t_tasktemplatedev" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_tasktype" EntityType="Self.t_tasktype" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_thunderdata" EntityType="Self.t_thunderdata" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_user" EntityType="Self.t_user" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_userlog" EntityType="Self.t_userlog" Schema="public" store:Type="Tables" />
+          <EntitySet Name="t_weatherdata" EntityType="Self.t_weatherdata" Schema="public" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PgSql" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PgSqlContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_antennaconfig" EntityType="PgSql.t_antennaconfig" />
+          <EntitySet Name="t_antennahealth" EntityType="PgSql.t_antennahealth" />
+          <EntitySet Name="t_asubtask" EntityType="PgSql.t_asubtask" />
+          <EntitySet Name="t_ataskinfo" EntityType="PgSql.t_ataskinfo" />
+          <EntitySet Name="t_datamanagerlog" EntityType="PgSql.t_datamanagerlog" />
+          <EntitySet Name="t_department" EntityType="PgSql.t_department" />
+          <EntitySet Name="t_devres" EntityType="PgSql.t_devres" />
+          <EntitySet Name="t_devresstatuslog" EntityType="PgSql.t_devresstatuslog" />
+          <EntitySet Name="t_devrestype" EntityType="PgSql.t_devrestype" />
+          <EntitySet Name="t_devrestypeinfo" EntityType="PgSql.t_devrestypeinfo" />
+          <EntitySet Name="t_fsubtask" EntityType="PgSql.t_fsubtask" />
+          <EntitySet Name="t_ftaskinfo" EntityType="PgSql.t_ftaskinfo" />
+          <EntitySet Name="t_mswitchconfig" EntityType="PgSql.t_mswitchconfig" />
+          <EntitySet Name="t_rescountdata" EntityType="PgSql.t_rescountdata" />
+          <EntitySet Name="t_role" EntityType="PgSql.t_role" />
+          <EntitySet Name="t_sat" EntityType="PgSql.t_sat" />
+          <EntitySet Name="t_station" EntityType="PgSql.t_station" />
+          <EntitySet Name="t_stationtask" EntityType="PgSql.t_stationtask" />
+          <EntitySet Name="t_substationtask" EntityType="PgSql.t_substationtask" />
+          <EntitySet Name="t_subtask" EntityType="PgSql.t_subtask" />
+          <EntitySet Name="t_subtasktype" EntityType="PgSql.t_subtasktype" />
+          <EntitySet Name="t_sysconfig" EntityType="PgSql.t_sysconfig" />
+          <EntitySet Name="t_taskdev" EntityType="PgSql.t_taskdev" />
+          <EntitySet Name="t_taskinfo" EntityType="PgSql.t_taskinfo" />
+          <EntitySet Name="t_tasktemplate" EntityType="PgSql.t_tasktemplate" />
+          <EntitySet Name="t_tasktemplatedev" EntityType="PgSql.t_tasktemplatedev" />
+          <EntitySet Name="t_tasktype" EntityType="PgSql.t_tasktype" />
+          <EntitySet Name="t_thunderdata" EntityType="PgSql.t_thunderdata" />
+          <EntitySet Name="t_user" EntityType="PgSql.t_user" />
+          <EntitySet Name="t_userlog" EntityType="PgSql.t_userlog" />
+          <EntitySet Name="t_weatherdata" EntityType="PgSql.t_weatherdata" />
+        </EntityContainer>
+        <EntityType Name="t_antennaconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antennaname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="resid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="height" Type="Double" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenidex" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_antennahealth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="sortid" Type="Int32" />
+          <Property Name="msgtime" Type="DateTime" Precision="6" />
+          <Property Name="systime" Type="DateTime" Precision="6" />
+          <Property Name="datatype" Type="Int32" />
+          <Property Name="health" Type="Int32" />
+          <Property Name="fw" Type="Single" />
+          <Property Name="fy" Type="Single" />
+          <Property Name="xhqd" Type="Single" />
+          <Property Name="lock" Type="Int32" />
+          <Property Name="djjcx" Type="Single" />
+          <Property Name="djjcy" Type="Single" />
+          <Property Name="kt1wd" Type="Single" />
+          <Property Name="kt1sd" Type="Single" />
+          <Property Name="wsd1wd" Type="Single" />
+          <Property Name="wsd1sd" Type="Single" />
+          <Property Name="sj1" Type="Single" />
+          <Property Name="fwdj1" Type="Single" />
+          <Property Name="fwdj2" Type="Single" />
+          <Property Name="fydj1" Type="Single" />
+          <Property Name="fydj2" Type="Single" />
+          <Property Name="sxdljxdy1" Type="Single" />
+          <Property Name="sxdljxdy2" Type="Single" />
+          <Property Name="sxdljxdy3" Type="Single" />
+          <Property Name="sxdljxiandy1" Type="Single" />
+          <Property Name="sxdljxiandy2" Type="Single" />
+          <Property Name="sxdljxiandy3" Type="Single" />
+          <Property Name="sxdljxdl1" Type="Single" />
+          <Property Name="sxdljxdl2" Type="Single" />
+          <Property Name="sxdljxdl3" Type="Single" />
+          <Property Name="txzmx" Type="Single" />
+          <Property Name="txzmy" Type="Single" />
+          <Property Name="txzmz" Type="Single" />
+          <Property Name="log" Type="Int32" />
+        </EntityType>
+        <EntityType Name="t_asubtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="satid" Type="Int16" />
+          <Property Name="satname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="t_ataskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="6" />
+          <Property Name="createperid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="createper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktypeid" Type="Int16" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="taskinterval" Type="Int32" />
+          <Property Name="taskrtstatusid" Type="Int16" />
+          <Property Name="taskcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datapath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenid" Type="Int16" />
+          <Property Name="reserved1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="reserved2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tasklog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="approvalstatus" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="approvalremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="approvalstatusid" Type="Int16" />
+          <Property Name="taskrtstatus" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_datamanagerlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="opertype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="systime" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="t_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="depname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="regtime" Type="DateTime" Precision="6" />
+          <Property Name="regper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="depcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="company" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_devres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="rescode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="restypeid" Type="Int32" />
+          <Property Name="restype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="restypeinfoid" Type="Int32" />
+          <Property Name="restypeinfo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="regtime" Type="DateTime" Precision="6" />
+          <Property Name="regper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="port" Type="Int32" />
+          <Property Name="resposition" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="localport" Type="Int32" />
+          <Property Name="ftpip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ftpport" Type="Int32" />
+          <Property Name="ftpuser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ftppasswd" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenidex" Type="Int16" />
+          <Property Name="addr485" Type="Int16" />
+          <Property Name="status" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_devresstatuslog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="rescode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="restypeid" Type="Int32" />
+          <Property Name="restype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="restypeinfoid" Type="Int32" />
+          <Property Name="restypeinfo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resstatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="statustime" Type="DateTime" Precision="6" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="port" Type="Int32" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_devrestype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="typename" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="typecode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="isdel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="t_devrestypeinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="typeid" Type="Int32" />
+          <Property Name="typename" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="typeinfo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="filepath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="isdel" Type="Boolean" />
+          <Property Name="TypeInfoCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_fsubtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="satid" Type="Int16" />
+          <Property Name="satname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="endazimuth" Type="Single" />
+          <Property Name="beginelevation" Type="Single" />
+          <Property Name="beginazimuth" Type="Single" />
+          <Property Name="endfelevation" Type="Single" />
+          <Property Name="pointinterval" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_ftaskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="6" />
+          <Property Name="createperid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="createper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktypeid" Type="Int16" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="taskinterval" Type="Int32" />
+          <Property Name="taskstatus" Type="Int16" />
+          <Property Name="taskcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datapath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="returnstatus" Type="Int16" />
+          <Property Name="reserved1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="reserved2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tasklog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="antenidex" Type="Int16" />
+          <Property Name="cz_receive_band" Type="Int16" />
+          <Property Name="cz_filter_band" Type="Int16" />
+          <Property Name="cz_work_mode" Type="Int16" />
+          <Property Name="cz_work_frequency" Type="Int16" />
+          <Property Name="cz_captimelen" Type="Int32" />
+          <Property Name="cz_samplerate" Type="Int16" />
+          <Property Name="cz_intervaltime" Type="Int16" />
+          <Property Name="cz_if" Type="Double" />
+          <Property Name="cz_dynamic_adjust" Type="Int16" />
+          <Property Name="cz_satlist" Type="Int16" />
+          <Property Name="cz_modeselect" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_mswitchconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resid" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="rescode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="inout" Type="Int16" />
+          <Property Name="channelnum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="channelname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_rescountdata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="t_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="rolename" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="rolecode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_sat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int16" Nullable="false" />
+          <Property Name="satname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="prn" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="satsys" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="restname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_station">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="regtime" Type="DateTime" Precision="6" />
+          <Property Name="isdel" Type="Boolean" />
+          <Property Name="stationtype" Type="Int16" />
+          <Property Name="ftppath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ftpuser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ftppasswd" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_stationtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="6" />
+          <Property Name="createper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktype" Type="Int16" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="taskinterval" Type="Int32" />
+          <Property Name="timetpye" Type="Int16" />
+          <Property Name="taskstatus" Type="Int16" />
+          <Property Name="raskcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="statuscomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_substationtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="satid" Type="Int16" />
+          <Property Name="satname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="t_subtask">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="satid" Type="Int16" />
+          <Property Name="satname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="endazimuth" Type="Single" />
+          <Property Name="beginelevation" Type="Single" />
+          <Property Name="beginazimuth" Type="Single" />
+          <Property Name="endfelevation" Type="Single" />
+          <Property Name="pointinterval" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_subtasktype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tasktypeid" Type="Int32" />
+          <Property Name="tasktype" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="subtasktype" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_sysconfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="rmq_serverip" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="rmq_serveruser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="rmq_serverpsd" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fb_localudpport" Type="Int32" />
+          <Property Name="fb_totalctlip" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fb_totalctlport" Type="Int32" />
+          <Property Name="fb_inthewayip" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fb_inthewayport" Type="Int32" />
+          <Property Name="ftp_dataserverip" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ftp_dataserverport" Type="Int32" />
+          <Property Name="ftp_dataserveruser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ftp_dataserverpsd" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="res_monitorinterval" Type="Int32" />
+          <Property Name="res_outlineinterval" Type="Int32" />
+          <Property Name="fb_bd3beginindex" Type="Int16" />
+          <Property Name="fb_bd3endindex" Type="Int16" />
+          <Property Name="ant_healthgate" Type="Int16" />
+          <Property Name="tsk_planinterval" Type="Int16" />
+          <Property Name="thd_autostopwarinterval" Type="Int32" />
+          <Property Name="thd_notneedwarinterval" Type="Int32" />
+          <Property Name="dm_antendatadays" Type="Int16" />
+          <Property Name="dm_thddatadays" Type="Int16" />
+          <Property Name="dm_whrdatadays" Type="Int16" />
+          <Property Name="dm_dmlogdatadays" Type="Int16" />
+          <Property Name="dm_dohour" Type="Int16" />
+          <Property Name="oh_editer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="oh_edittime" Type="DateTime" Precision="6" />
+          <Property Name="oh_reserve1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="oh_reserve2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="oh_reserve3" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_taskdev">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="param" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="index" Type="Int16" />
+          <Property Name="restypeid" Type="Int32" />
+          <Property Name="restypeinfoid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="t_taskinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="parenttaskid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="taskname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="6" />
+          <Property Name="createperid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="createper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktypeid" Type="Int16" />
+          <Property Name="subtasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="subtasktypeid" Type="Int16" />
+          <Property Name="begintime" Type="DateTime" Precision="6" />
+          <Property Name="endtime" Type="DateTime" Precision="6" />
+          <Property Name="taskinterval" Type="Int32" />
+          <Property Name="cycletpye" Type="Int16" />
+          <Property Name="cycleneed" Type="Int16" />
+          <Property Name="taskstatus" Type="Int16" />
+          <Property Name="taskcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tasklog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sharedatapath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="localdatapath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="station" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="stationid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="reserved1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="reserved2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="antenname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="antenidex" Type="Int16" />
+          <Property Name="cz_receive_band" Type="Int16" />
+          <Property Name="cz_filter_band" Type="Int16" />
+          <Property Name="cz_work_mode" Type="Int16" />
+          <Property Name="cz_work_frequency" Type="Int16" />
+          <Property Name="cz_captimelen" Type="Int32" />
+          <Property Name="cz_samplerate" Type="Int16" />
+          <Property Name="cz_intervaltime" Type="Int16" />
+          <Property Name="cz_if" Type="Double" />
+          <Property Name="cz_dynamic_adjust" Type="Int16" />
+          <Property Name="cz_satlist" Type="Int16" />
+          <Property Name="cz_modeselect" Type="Int16" />
+        </EntityType>
+        <EntityType Name="t_tasktemplate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="templatename" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="6" />
+          <Property Name="createper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="tasktypeid" Type="Int16" />
+          <Property Name="subtasktype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="subtasktypeid" Type="Int16" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_tasktemplatedev">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="templateid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="resid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="param" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="resname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="index" Type="Int16" />
+          <Property Name="restypeid" Type="Int32" />
+          <Property Name="restypeinfoid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="t_tasktype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tasktype" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edittime" Type="DateTime" Precision="6" />
+          <Property Name="editper" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_thunderdata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="sortid" Type="Int32" />
+          <Property Name="typemsg" Type="Int32" />
+          <Property Name="datalen" Type="Int32" />
+          <Property Name="timemsg" Type="DateTime" Precision="6" />
+          <Property Name="eqptype" Type="Int32" />
+          <Property Name="iostat" Type="Int32" />
+          <Property Name="thundercnt" Type="Int32" />
+          <Property Name="warlevel" Type="Int32" />
+          <Property Name="elecpower" Type="Single" />
+          <Property Name="elecpoweraver" Type="Single" />
+          <Property Name="elecpowerrate" Type="Single" />
+          <Property Name="power" Type="Single" />
+          <Property Name="eqptemp" Type="Single" />
+          <Property Name="funspeed" Type="Int32" />
+          <Property Name="devresid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="logincode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="passwd" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="regtime" Type="DateTime" Precision="6" />
+          <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="roleid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="departmentid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="isdel" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="t_userlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="logincode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="opertype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="usertime" Type="DateTime" Precision="6" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_weatherdata">
+          <Key>
+            <PropertyRef Name="weatherid" />
+          </Key>
+          <Property Name="weatherid" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="weathertype" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="weathercontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="weathertime" Type="DateTime" Precision="6" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="PgSql" />
+        <Alias Key="Target" Value="PgSql.Store" />
+        <EntityContainerMapping CdmEntityContainer="PgSqlContainer" StorageEntityContainer="PgSqlStoreContainer">
+          <EntitySetMapping Name="t_antennaconfig">
+            <EntityTypeMapping TypeName="PgSql.t_antennaconfig">
+              <MappingFragment StoreEntitySet="t_antennaconfig">
+                <ScalarProperty Name="antenidex" ColumnName="antenidex" />
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="resid" ColumnName="resid" />
+                <ScalarProperty Name="antennaname" ColumnName="antennaname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_antennahealth">
+            <EntityTypeMapping TypeName="PgSql.t_antennahealth">
+              <MappingFragment StoreEntitySet="t_antennahealth">
+                <ScalarProperty Name="log" ColumnName="log" />
+                <ScalarProperty Name="txzmz" ColumnName="txzmz" />
+                <ScalarProperty Name="txzmy" ColumnName="txzmy" />
+                <ScalarProperty Name="txzmx" ColumnName="txzmx" />
+                <ScalarProperty Name="sxdljxdl3" ColumnName="sxdljxdl3" />
+                <ScalarProperty Name="sxdljxdl2" ColumnName="sxdljxdl2" />
+                <ScalarProperty Name="sxdljxdl1" ColumnName="sxdljxdl1" />
+                <ScalarProperty Name="sxdljxiandy3" ColumnName="sxdljxiandy3" />
+                <ScalarProperty Name="sxdljxiandy2" ColumnName="sxdljxiandy2" />
+                <ScalarProperty Name="sxdljxiandy1" ColumnName="sxdljxiandy1" />
+                <ScalarProperty Name="sxdljxdy3" ColumnName="sxdljxdy3" />
+                <ScalarProperty Name="sxdljxdy2" ColumnName="sxdljxdy2" />
+                <ScalarProperty Name="sxdljxdy1" ColumnName="sxdljxdy1" />
+                <ScalarProperty Name="fydj2" ColumnName="fydj2" />
+                <ScalarProperty Name="fydj1" ColumnName="fydj1" />
+                <ScalarProperty Name="fwdj2" ColumnName="fwdj2" />
+                <ScalarProperty Name="fwdj1" ColumnName="fwdj1" />
+                <ScalarProperty Name="sj1" ColumnName="sj1" />
+                <ScalarProperty Name="wsd1sd" ColumnName="wsd1sd" />
+                <ScalarProperty Name="wsd1wd" ColumnName="wsd1wd" />
+                <ScalarProperty Name="kt1sd" ColumnName="kt1sd" />
+                <ScalarProperty Name="kt1wd" ColumnName="kt1wd" />
+                <ScalarProperty Name="djjcy" ColumnName="djjcy" />
+                <ScalarProperty Name="djjcx" ColumnName="djjcx" />
+                <ScalarProperty Name="lock" ColumnName="lock" />
+                <ScalarProperty Name="xhqd" ColumnName="xhqd" />
+                <ScalarProperty Name="fy" ColumnName="fy" />
+                <ScalarProperty Name="fw" ColumnName="fw" />
+                <ScalarProperty Name="health" ColumnName="health" />
+                <ScalarProperty Name="datatype" ColumnName="datatype" />
+                <ScalarProperty Name="systime" ColumnName="systime" />
+                <ScalarProperty Name="msgtime" ColumnName="msgtime" />
+                <ScalarProperty Name="sortid" ColumnName="sortid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_asubtask">
+            <EntityTypeMapping TypeName="PgSql.t_asubtask">
+              <MappingFragment StoreEntitySet="t_asubtask">
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="satname" ColumnName="satname" />
+                <ScalarProperty Name="satid" ColumnName="satid" />
+                <ScalarProperty Name="taskid" ColumnName="taskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_ataskinfo">
+            <EntityTypeMapping TypeName="PgSql.t_ataskinfo">
+              <MappingFragment StoreEntitySet="t_ataskinfo">
+                <ScalarProperty Name="taskrtstatus" ColumnName="taskrtstatus" />
+                <ScalarProperty Name="approvalstatusid" ColumnName="approvalstatusid" />
+                <ScalarProperty Name="approvalremark" ColumnName="approvalremark" />
+                <ScalarProperty Name="approvalstatus" ColumnName="approvalstatus" />
+                <ScalarProperty Name="tasklog" ColumnName="tasklog" />
+                <ScalarProperty Name="reserved2" ColumnName="reserved2" />
+                <ScalarProperty Name="reserved1" ColumnName="reserved1" />
+                <ScalarProperty Name="antenid" ColumnName="antenid" />
+                <ScalarProperty Name="antenname" ColumnName="antenname" />
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="datapath" ColumnName="datapath" />
+                <ScalarProperty Name="taskcomment" ColumnName="taskcomment" />
+                <ScalarProperty Name="taskrtstatusid" ColumnName="taskrtstatusid" />
+                <ScalarProperty Name="taskinterval" ColumnName="taskinterval" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="tasktypeid" ColumnName="tasktypeid" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="createper" ColumnName="createper" />
+                <ScalarProperty Name="createperid" ColumnName="createperid" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_datamanagerlog">
+            <EntityTypeMapping TypeName="PgSql.t_datamanagerlog">
+              <MappingFragment StoreEntitySet="t_datamanagerlog">
+                <ScalarProperty Name="systime" ColumnName="systime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="opertype" ColumnName="opertype" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_department">
+            <EntityTypeMapping TypeName="PgSql.t_department">
+              <MappingFragment StoreEntitySet="t_department">
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="depcode" ColumnName="depcode" />
+                <ScalarProperty Name="regper" ColumnName="regper" />
+                <ScalarProperty Name="regtime" ColumnName="regtime" />
+                <ScalarProperty Name="depname" ColumnName="depname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_devres">
+            <EntityTypeMapping TypeName="PgSql.t_devres">
+              <MappingFragment StoreEntitySet="t_devres">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="addr485" ColumnName="addr485" />
+                <ScalarProperty Name="antenidex" ColumnName="antenidex" />
+                <ScalarProperty Name="antenname" ColumnName="antenname" />
+                <ScalarProperty Name="ftppasswd" ColumnName="ftppasswd" />
+                <ScalarProperty Name="ftpuser" ColumnName="ftpuser" />
+                <ScalarProperty Name="ftpport" ColumnName="ftpport" />
+                <ScalarProperty Name="ftpip" ColumnName="ftpip" />
+                <ScalarProperty Name="localport" ColumnName="localport" />
+                <ScalarProperty Name="resposition" ColumnName="resposition" />
+                <ScalarProperty Name="port" ColumnName="port" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="regper" ColumnName="regper" />
+                <ScalarProperty Name="regtime" ColumnName="regtime" />
+                <ScalarProperty Name="restypeinfo" ColumnName="restypeinfo" />
+                <ScalarProperty Name="restypeinfoid" ColumnName="restypeinfoid" />
+                <ScalarProperty Name="restype" ColumnName="restype" />
+                <ScalarProperty Name="restypeid" ColumnName="restypeid" />
+                <ScalarProperty Name="rescode" ColumnName="rescode" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_devresstatuslog">
+            <EntityTypeMapping TypeName="PgSql.t_devresstatuslog">
+              <MappingFragment StoreEntitySet="t_devresstatuslog">
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="port" ColumnName="port" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="statustime" ColumnName="statustime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="resstatus" ColumnName="resstatus" />
+                <ScalarProperty Name="restypeinfo" ColumnName="restypeinfo" />
+                <ScalarProperty Name="restypeinfoid" ColumnName="restypeinfoid" />
+                <ScalarProperty Name="restype" ColumnName="restype" />
+                <ScalarProperty Name="restypeid" ColumnName="restypeid" />
+                <ScalarProperty Name="rescode" ColumnName="rescode" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="resid" ColumnName="resid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_devrestype">
+            <EntityTypeMapping TypeName="PgSql.t_devrestype">
+              <MappingFragment StoreEntitySet="t_devrestype">
+                <ScalarProperty Name="isdel" ColumnName="isdel" />
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="typecode" ColumnName="typecode" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_devrestypeinfo">
+            <EntityTypeMapping TypeName="PgSql.t_devrestypeinfo">
+              <MappingFragment StoreEntitySet="t_devrestypeinfo">
+                <ScalarProperty Name="TypeInfoCode" ColumnName="TypeInfoCode" />
+                <ScalarProperty Name="isdel" ColumnName="isdel" />
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
+                <ScalarProperty Name="typeinfo" ColumnName="typeinfo" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_fsubtask">
+            <EntityTypeMapping TypeName="PgSql.t_fsubtask">
+              <MappingFragment StoreEntitySet="t_fsubtask">
+                <ScalarProperty Name="pointinterval" ColumnName="pointinterval" />
+                <ScalarProperty Name="endfelevation" ColumnName="endfelevation" />
+                <ScalarProperty Name="beginazimuth" ColumnName="beginazimuth" />
+                <ScalarProperty Name="beginelevation" ColumnName="beginelevation" />
+                <ScalarProperty Name="endazimuth" ColumnName="endazimuth" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="satname" ColumnName="satname" />
+                <ScalarProperty Name="satid" ColumnName="satid" />
+                <ScalarProperty Name="taskid" ColumnName="taskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_ftaskinfo">
+            <EntityTypeMapping TypeName="PgSql.t_ftaskinfo">
+              <MappingFragment StoreEntitySet="t_ftaskinfo">
+                <ScalarProperty Name="cz_modeselect" ColumnName="cz_modeselect" />
+                <ScalarProperty Name="cz_satlist" ColumnName="cz_satlist" />
+                <ScalarProperty Name="cz_dynamic_adjust" ColumnName="cz_dynamic_adjust" />
+                <ScalarProperty Name="cz_if" ColumnName="cz_if" />
+                <ScalarProperty Name="cz_intervaltime" ColumnName="cz_intervaltime" />
+                <ScalarProperty Name="cz_samplerate" ColumnName="cz_samplerate" />
+                <ScalarProperty Name="cz_captimelen" ColumnName="cz_captimelen" />
+                <ScalarProperty Name="cz_work_frequency" ColumnName="cz_work_frequency" />
+                <ScalarProperty Name="cz_work_mode" ColumnName="cz_work_mode" />
+                <ScalarProperty Name="cz_filter_band" ColumnName="cz_filter_band" />
+                <ScalarProperty Name="cz_receive_band" ColumnName="cz_receive_band" />
+                <ScalarProperty Name="antenidex" ColumnName="antenidex" />
+                <ScalarProperty Name="tasklog" ColumnName="tasklog" />
+                <ScalarProperty Name="reserved2" ColumnName="reserved2" />
+                <ScalarProperty Name="reserved1" ColumnName="reserved1" />
+                <ScalarProperty Name="returnstatus" ColumnName="returnstatus" />
+                <ScalarProperty Name="antenid" ColumnName="antenid" />
+                <ScalarProperty Name="antenname" ColumnName="antenname" />
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="datapath" ColumnName="datapath" />
+                <ScalarProperty Name="taskcomment" ColumnName="taskcomment" />
+                <ScalarProperty Name="taskstatus" ColumnName="taskstatus" />
+                <ScalarProperty Name="taskinterval" ColumnName="taskinterval" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="tasktypeid" ColumnName="tasktypeid" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="createper" ColumnName="createper" />
+                <ScalarProperty Name="createperid" ColumnName="createperid" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_mswitchconfig">
+            <EntityTypeMapping TypeName="PgSql.t_mswitchconfig">
+              <MappingFragment StoreEntitySet="t_mswitchconfig">
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="channelname" ColumnName="channelname" />
+                <ScalarProperty Name="channelnum" ColumnName="channelnum" />
+                <ScalarProperty Name="inout" ColumnName="inout" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="rescode" ColumnName="rescode" />
+                <ScalarProperty Name="resid" ColumnName="resid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_rescountdata">
+            <EntityTypeMapping TypeName="PgSql.t_rescountdata">
+              <MappingFragment StoreEntitySet="t_rescountdata">
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_role">
+            <EntityTypeMapping TypeName="PgSql.t_role">
+              <MappingFragment StoreEntitySet="t_role">
+                <ScalarProperty Name="rolecode" ColumnName="rolecode" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_sat">
+            <EntityTypeMapping TypeName="PgSql.t_sat">
+              <MappingFragment StoreEntitySet="t_sat">
+                <ScalarProperty Name="restname" ColumnName="restname" />
+                <ScalarProperty Name="satsys" ColumnName="satsys" />
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="prn" ColumnName="prn" />
+                <ScalarProperty Name="satname" ColumnName="satname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_station">
+            <EntityTypeMapping TypeName="PgSql.t_station">
+              <MappingFragment StoreEntitySet="t_station">
+                <ScalarProperty Name="ftppasswd" ColumnName="ftppasswd" />
+                <ScalarProperty Name="ftpuser" ColumnName="ftpuser" />
+                <ScalarProperty Name="ftppath" ColumnName="ftppath" />
+                <ScalarProperty Name="stationtype" ColumnName="stationtype" />
+                <ScalarProperty Name="isdel" ColumnName="isdel" />
+                <ScalarProperty Name="regtime" ColumnName="regtime" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_stationtask">
+            <EntityTypeMapping TypeName="PgSql.t_stationtask">
+              <MappingFragment StoreEntitySet="t_stationtask">
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="statuscomment" ColumnName="statuscomment" />
+                <ScalarProperty Name="raskcomment" ColumnName="raskcomment" />
+                <ScalarProperty Name="taskstatus" ColumnName="taskstatus" />
+                <ScalarProperty Name="timetpye" ColumnName="timetpye" />
+                <ScalarProperty Name="taskinterval" ColumnName="taskinterval" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="createper" ColumnName="createper" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_substationtask">
+            <EntityTypeMapping TypeName="PgSql.t_substationtask">
+              <MappingFragment StoreEntitySet="t_substationtask">
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="satname" ColumnName="satname" />
+                <ScalarProperty Name="satid" ColumnName="satid" />
+                <ScalarProperty Name="taskid" ColumnName="taskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_subtask">
+            <EntityTypeMapping TypeName="PgSql.t_subtask">
+              <MappingFragment StoreEntitySet="t_subtask">
+                <ScalarProperty Name="pointinterval" ColumnName="pointinterval" />
+                <ScalarProperty Name="endfelevation" ColumnName="endfelevation" />
+                <ScalarProperty Name="beginazimuth" ColumnName="beginazimuth" />
+                <ScalarProperty Name="beginelevation" ColumnName="beginelevation" />
+                <ScalarProperty Name="endazimuth" ColumnName="endazimuth" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="satname" ColumnName="satname" />
+                <ScalarProperty Name="satid" ColumnName="satid" />
+                <ScalarProperty Name="taskid" ColumnName="taskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_subtasktype">
+            <EntityTypeMapping TypeName="PgSql.t_subtasktype">
+              <MappingFragment StoreEntitySet="t_subtasktype">
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="subtasktype" ColumnName="subtasktype" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="tasktypeid" ColumnName="tasktypeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_sysconfig">
+            <EntityTypeMapping TypeName="PgSql.t_sysconfig">
+              <MappingFragment StoreEntitySet="t_sysconfig">
+                <ScalarProperty Name="oh_reserve3" ColumnName="oh_reserve3" />
+                <ScalarProperty Name="oh_reserve2" ColumnName="oh_reserve2" />
+                <ScalarProperty Name="oh_reserve1" ColumnName="oh_reserve1" />
+                <ScalarProperty Name="oh_edittime" ColumnName="oh_edittime" />
+                <ScalarProperty Name="oh_editer" ColumnName="oh_editer" />
+                <ScalarProperty Name="dm_dohour" ColumnName="dm_dohour" />
+                <ScalarProperty Name="dm_dmlogdatadays" ColumnName="dm_dmlogdatadays" />
+                <ScalarProperty Name="dm_whrdatadays" ColumnName="dm_whrdatadays" />
+                <ScalarProperty Name="dm_thddatadays" ColumnName="dm_thddatadays" />
+                <ScalarProperty Name="dm_antendatadays" ColumnName="dm_antendatadays" />
+                <ScalarProperty Name="thd_notneedwarinterval" ColumnName="thd_notneedwarinterval" />
+                <ScalarProperty Name="thd_autostopwarinterval" ColumnName="thd_autostopwarinterval" />
+                <ScalarProperty Name="tsk_planinterval" ColumnName="tsk_planinterval" />
+                <ScalarProperty Name="ant_healthgate" ColumnName="ant_healthgate" />
+                <ScalarProperty Name="fb_bd3endindex" ColumnName="fb_bd3endindex" />
+                <ScalarProperty Name="fb_bd3beginindex" ColumnName="fb_bd3beginindex" />
+                <ScalarProperty Name="res_outlineinterval" ColumnName="res_outlineinterval" />
+                <ScalarProperty Name="res_monitorinterval" ColumnName="res_monitorinterval" />
+                <ScalarProperty Name="ftp_dataserverpsd" ColumnName="ftp_dataserverpsd" />
+                <ScalarProperty Name="ftp_dataserveruser" ColumnName="ftp_dataserveruser" />
+                <ScalarProperty Name="ftp_dataserverport" ColumnName="ftp_dataserverport" />
+                <ScalarProperty Name="ftp_dataserverip" ColumnName="ftp_dataserverip" />
+                <ScalarProperty Name="fb_inthewayport" ColumnName="fb_inthewayport" />
+                <ScalarProperty Name="fb_inthewayip" ColumnName="fb_inthewayip" />
+                <ScalarProperty Name="fb_totalctlport" ColumnName="fb_totalctlport" />
+                <ScalarProperty Name="fb_totalctlip" ColumnName="fb_totalctlip" />
+                <ScalarProperty Name="fb_localudpport" ColumnName="fb_localudpport" />
+                <ScalarProperty Name="rmq_serverpsd" ColumnName="rmq_serverpsd" />
+                <ScalarProperty Name="rmq_serveruser" ColumnName="rmq_serveruser" />
+                <ScalarProperty Name="rmq_serverip" ColumnName="rmq_serverip" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_taskdev">
+            <EntityTypeMapping TypeName="PgSql.t_taskdev">
+              <MappingFragment StoreEntitySet="t_taskdev">
+                <ScalarProperty Name="restypeinfoid" ColumnName="restypeinfoid" />
+                <ScalarProperty Name="restypeid" ColumnName="restypeid" />
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="param" ColumnName="param" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="resid" ColumnName="resid" />
+                <ScalarProperty Name="taskid" ColumnName="taskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_taskinfo">
+            <EntityTypeMapping TypeName="PgSql.t_taskinfo">
+              <MappingFragment StoreEntitySet="t_taskinfo">
+                <ScalarProperty Name="cz_modeselect" ColumnName="cz_modeselect" />
+                <ScalarProperty Name="cz_satlist" ColumnName="cz_satlist" />
+                <ScalarProperty Name="cz_dynamic_adjust" ColumnName="cz_dynamic_adjust" />
+                <ScalarProperty Name="cz_if" ColumnName="cz_if" />
+                <ScalarProperty Name="cz_intervaltime" ColumnName="cz_intervaltime" />
+                <ScalarProperty Name="cz_samplerate" ColumnName="cz_samplerate" />
+                <ScalarProperty Name="cz_captimelen" ColumnName="cz_captimelen" />
+                <ScalarProperty Name="cz_work_frequency" ColumnName="cz_work_frequency" />
+                <ScalarProperty Name="cz_work_mode" ColumnName="cz_work_mode" />
+                <ScalarProperty Name="cz_filter_band" ColumnName="cz_filter_band" />
+                <ScalarProperty Name="cz_receive_band" ColumnName="cz_receive_band" />
+                <ScalarProperty Name="antenidex" ColumnName="antenidex" />
+                <ScalarProperty Name="antenid" ColumnName="antenid" />
+                <ScalarProperty Name="antenname" ColumnName="antenname" />
+                <ScalarProperty Name="reserved2" ColumnName="reserved2" />
+                <ScalarProperty Name="reserved1" ColumnName="reserved1" />
+                <ScalarProperty Name="stationid" ColumnName="stationid" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="localdatapath" ColumnName="localdatapath" />
+                <ScalarProperty Name="sharedatapath" ColumnName="sharedatapath" />
+                <ScalarProperty Name="tasklog" ColumnName="tasklog" />
+                <ScalarProperty Name="taskcomment" ColumnName="taskcomment" />
+                <ScalarProperty Name="taskstatus" ColumnName="taskstatus" />
+                <ScalarProperty Name="cycleneed" ColumnName="cycleneed" />
+                <ScalarProperty Name="cycletpye" ColumnName="cycletpye" />
+                <ScalarProperty Name="taskinterval" ColumnName="taskinterval" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="begintime" ColumnName="begintime" />
+                <ScalarProperty Name="subtasktypeid" ColumnName="subtasktypeid" />
+                <ScalarProperty Name="subtasktype" ColumnName="subtasktype" />
+                <ScalarProperty Name="tasktypeid" ColumnName="tasktypeid" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="createper" ColumnName="createper" />
+                <ScalarProperty Name="createperid" ColumnName="createperid" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="taskname" ColumnName="taskname" />
+                <ScalarProperty Name="parenttaskid" ColumnName="parenttaskid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_tasktemplate">
+            <EntityTypeMapping TypeName="PgSql.t_tasktemplate">
+              <MappingFragment StoreEntitySet="t_tasktemplate">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="subtasktypeid" ColumnName="subtasktypeid" />
+                <ScalarProperty Name="subtasktype" ColumnName="subtasktype" />
+                <ScalarProperty Name="tasktypeid" ColumnName="tasktypeid" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="createper" ColumnName="createper" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="templatename" ColumnName="templatename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_tasktemplatedev">
+            <EntityTypeMapping TypeName="PgSql.t_tasktemplatedev">
+              <MappingFragment StoreEntitySet="t_tasktemplatedev">
+                <ScalarProperty Name="restypeinfoid" ColumnName="restypeinfoid" />
+                <ScalarProperty Name="restypeid" ColumnName="restypeid" />
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="resname" ColumnName="resname" />
+                <ScalarProperty Name="param" ColumnName="param" />
+                <ScalarProperty Name="resid" ColumnName="resid" />
+                <ScalarProperty Name="templateid" ColumnName="templateid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_tasktype">
+            <EntityTypeMapping TypeName="PgSql.t_tasktype">
+              <MappingFragment StoreEntitySet="t_tasktype">
+                <ScalarProperty Name="editper" ColumnName="editper" />
+                <ScalarProperty Name="edittime" ColumnName="edittime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_thunderdata">
+            <EntityTypeMapping TypeName="PgSql.t_thunderdata">
+              <MappingFragment StoreEntitySet="t_thunderdata">
+                <ScalarProperty Name="devresid" ColumnName="devresid" />
+                <ScalarProperty Name="funspeed" ColumnName="funspeed" />
+                <ScalarProperty Name="eqptemp" ColumnName="eqptemp" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="elecpowerrate" ColumnName="elecpowerrate" />
+                <ScalarProperty Name="elecpoweraver" ColumnName="elecpoweraver" />
+                <ScalarProperty Name="elecpower" ColumnName="elecpower" />
+                <ScalarProperty Name="warlevel" ColumnName="warlevel" />
+                <ScalarProperty Name="thundercnt" ColumnName="thundercnt" />
+                <ScalarProperty Name="iostat" ColumnName="iostat" />
+                <ScalarProperty Name="eqptype" ColumnName="eqptype" />
+                <ScalarProperty Name="timemsg" ColumnName="timemsg" />
+                <ScalarProperty Name="datalen" ColumnName="datalen" />
+                <ScalarProperty Name="typemsg" ColumnName="typemsg" />
+                <ScalarProperty Name="sortid" ColumnName="sortid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_user">
+            <EntityTypeMapping TypeName="PgSql.t_user">
+              <MappingFragment StoreEntitySet="t_user">
+                <ScalarProperty Name="isdel" ColumnName="isdel" />
+                <ScalarProperty Name="departmentid" ColumnName="departmentid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="regtime" ColumnName="regtime" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+                <ScalarProperty Name="logincode" ColumnName="logincode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_userlog">
+            <EntityTypeMapping TypeName="PgSql.t_userlog">
+              <MappingFragment StoreEntitySet="t_userlog">
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="usertime" ColumnName="usertime" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="opertype" ColumnName="opertype" />
+                <ScalarProperty Name="logincode" ColumnName="logincode" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_weatherdata">
+            <EntityTypeMapping TypeName="PgSql.t_weatherdata">
+              <MappingFragment StoreEntitySet="t_weatherdata">
+                <ScalarProperty Name="weathertime" ColumnName="weathertime" />
+                <ScalarProperty Name="weathercontent" ColumnName="weathercontent" />
+                <ScalarProperty Name="weathertype" ColumnName="weathertype" />
+                <ScalarProperty Name="weatherid" ColumnName="weatherid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
