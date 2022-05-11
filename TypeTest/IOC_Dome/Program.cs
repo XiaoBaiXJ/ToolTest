@@ -1,36 +1,44 @@
-﻿using System;
+﻿using log4net;
+using log4net.Core;
+using System;
 using System.Collections;
 using System.Collections.Specialized;
+using System.IO;
 using Unity;
 
 namespace IOCMin
 {
     class Program
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         static void Main(string[] args)
         {
-            IContainer container = Container.SingleInstance;
+            log.Info("Entering application.");
 
-            //var container = new Container();
+            log4net.Config.XmlConfigurator.Configure(new FileInfo(@"\config.log4net"));
 
-            container.RegisterType<IEntityBase, StudentClass>();
+            //IContainer container = Container.SingleInstance;
 
-            //container.RegisterType(action => 
+            ////var container = new Container();
+
+            //container.RegisterType<IEntityBase, StudentClass>();
+
+            ////container.RegisterType(action => 
+            ////{
+            ////    action.RegisterType<IEntityBase, StudentClass>();
+            ////});
+
+            //IEntityBase aa = container.Resolve<IEntityBase>();
+            //IEntityBase bb = container.Resolve<IEntityBase>();
+
+            //if (aa==bb)
             //{
-            //    action.RegisterType<IEntityBase, StudentClass>();
-            //});
 
-            IEntityBase aa = container.Resolve<IEntityBase>();
-            IEntityBase bb = container.Resolve<IEntityBase>();
+            //}
+            //if (aa.Equals(bb))
+            //{
 
-            if (aa==bb)
-            {
-
-            }
-            if (aa.Equals(bb))
-            {
-
-            }
+            //}
 
             Console.WriteLine("Hello World!");
             //IUnityContainer container = new UnityContainer();
@@ -88,7 +96,7 @@ namespace IOCMin
 
     public class StudentClass: IEntityBase
     {
-        public StudentClass()
+        public StudentClass(ILogger log)
         {
             Console.WriteLine("{0}被构造了!", GetType().Name);
         }

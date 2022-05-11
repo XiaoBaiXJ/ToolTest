@@ -14,6 +14,8 @@ namespace IOCMin
         /// </summary>
         private ConcurrentDictionary<string, Type> ContainerDictionary = new ConcurrentDictionary<string, Type>();
 
+        private static Lazy<Container> container = new Lazy<Container>(() => new Container());
+
         /// <summary>
         /// 不能被初始化
         /// </summary>
@@ -24,7 +26,7 @@ namespace IOCMin
         /// <summary>
         /// 单例
         /// </summary>
-        public static IContainer SingleInstance => new Container();
+        public static IContainer SingleInstance => container.Value;
 
 
         /// <summary>
